@@ -123,7 +123,7 @@ class ArrayContainsComparator {
                     );
                 }
 
-                if (is_array($value)) {
+                if (is_array($value) && is_array($subHaystack[$index])) {
                     // The value is an array, do a recursive check
                     $this->compare($value, $subHaystack[$index]);
                 } else if (!$this->compareValues($value, $subHaystack[$index])) {
@@ -144,7 +144,7 @@ class ArrayContainsComparator {
                     );
                 }
 
-                if (is_array($value)) {
+                if (is_array($value) && is_array($haystack[$key])) {
                     // If the value is an array, recurse
                     $this->compare($value, $haystack[$key]);
                 } else if (!$this->compareValues($value, $haystack[$key])) {
